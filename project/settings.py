@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 from pathlib import Path
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -62,7 +63,9 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,4 +138,14 @@ MEDIAFILES_DIRS = [
     BASE_DIR / 'media'
 ]
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'auth:login'
+LOGIN_REDIRECT_URL = 'hostclub:top'
+LOGOUT_REDIRECT_URL  = 'auth:login'
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert alert-secondary',
+    messages.INFO: 'alert alert-info',
+    messages.SUCCESS: 'alert alert-success',
+    messages.WARNING: 'alert alert-warning',
+    messages.ERROR: 'alert alert-danger',
+}
