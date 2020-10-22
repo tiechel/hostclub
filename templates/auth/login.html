@@ -2,27 +2,23 @@
 
 {% block content %}
 <div class="login-wrap">
-  <div class="card">
-    <div class="card-body">
-      <form action="{% url 'auth:login' %}" method="POST" novalidate>
-        {% if form.non_field_errors %}
-        <ul class="list-unstyled">
-          {% for err in form.non_field_errors %}
-          <li class="alert alert-danger">{{ err }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-        {% for field in form %}
-        <div class="form-group">
-          {{ field }}
-          {{ field.errors }}
-        </div>
-        {% endfor %}
-        <button type="submit" class="btn btn-success btn-lg btn-block">ログイン</button>
-        <input type="hidden" name="next" value="{{ next }}">
-        {% csrf_token %}
-      </form>
+  <form action="{% url 'auth:login' %}" method="POST" novalidate>
+    {% if form.non_field_errors %}
+    <ul class="list-unstyled">
+      {% for err in form.non_field_errors %}
+      <li class="alert alert-danger">{{ err }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% for field in form %}
+    <div class="form-group">
+      {{ field }}
+      {{ field.errors }}
     </div>
-  </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-success btn-lg btn-block">ログイン</button>
+    <input type="hidden" name="next" value="{{ next }}">
+    {% csrf_token %}
+  </form>
 </div>
 {% endblock %}
