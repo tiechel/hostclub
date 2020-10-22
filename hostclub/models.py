@@ -32,9 +32,8 @@ class Customer(models.Model):
     name = models.CharField(verbose_name='お客様名', max_length=100)
     # @ref https://qiita.com/okoppe8/items/86776b8df566a4513e96
     # add validators if required  [FileExtensionValidator(['jpg', 'png'...])]
-    image = models.ImageField(verbose_name='画像', upload_to=get_image_path)
+    image = models.ImageField(verbose_name='画像', upload_to=get_image_path, blank=True)
     memo = models.TextField(verbose_name='メモ', blank=True, default='')
-
 
     def __repr__(self):
         return '<Customer: %s %s>' % (self.id, self.name)

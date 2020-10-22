@@ -1,0 +1,12 @@
+{% extends 'hostclub/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<form action="{% url 'hostclub:customer_create' %}" method="POST" enctype="multipart/form-data" novalidate>
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button type="submit" class="btn btn-success">登録</button>
+</form>
+{% endblock %}
