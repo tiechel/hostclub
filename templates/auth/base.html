@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<style>
+html, body {
+  height: 100%;
+}
+body {
+  background-color: black;
+  background-repeat: no-repeat;
+  background-image: url("{% static 'image/bg_login.jpg' %}");
+  background-size: 100% auto;
+  background-position: center, center;
+}
+.login-wrap, .logout-wrap {
+  min-width: 320px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media (max-width: 320px) {
+  .login-wrap, .logout-wrap {
+    min-width: 90%;
+  }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}

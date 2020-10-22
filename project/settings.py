@@ -140,7 +140,7 @@ MEDIAFILES_DIRS = [
 
 LOGIN_URL = 'auth:login'
 LOGIN_REDIRECT_URL = 'hostclub:top'
-LOGOUT_REDIRECT_URL  = 'auth:login'
+# LOGOUT_REDIRECT_URL  = 'auth:login'
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert alert-secondary',

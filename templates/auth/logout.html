@@ -1,23 +1,13 @@
-{% extends 'base.html' %}
-
-{% load static %}
+{% extends 'auth/base.html' %}
 
 {% block content %}
-<form action="" method="POST">
-  <div class="col-md-6 offset-md-3">
-    <div class="card">
-      <div class="card-body">
-        {{ form.non_field_errors }}
-        {% for field in form %}
-          {{ field }}
-          {{ field.errors }}
-          <hr>
-        {% endfor %}
-        <button type="submit" class="btn btn-success btn-lg btn-block">ログイン</button>
-        <input type="hidden" name="next" value="{{ next }}">
-        {% csrf_token %}
-      </div>
+<div class="logout-wrap">
+  <div class="card">
+    <div class="card-body">
+      <h3>ログアウト</h3>
+      <p>ご利用ありがとうございました。</p>
+      <a href="{% url 'auth:login' %}">もう一度ログイン</a>
     </div>
   </div>
-</form>
+</div>
 {% endblock %}
