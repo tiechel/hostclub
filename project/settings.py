@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'hostclub',
 ]
 
-# @ref https://yuki.world/apply-bootstrap4-to-django-form/
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
